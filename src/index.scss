@@ -1,0 +1,107 @@
+$primary: #348fe4;
+$success: #73d897;
+$danger: #ff7575;
+$warning: #ffcd5d;
+$info: #5dcfff;
+
+@import '~ngx-tethys/styles/basic.scss';
+@import '~ngx-tethys/styles/modules/index.scss';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/code';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/utilities';
+@import '~ngx-tethys/button/styles/button';
+@import '~ngx-tethys/form/styles/forms';
+@import '~ngx-tethys/input/styles/input';
+@import '~ngx-tethys/icon/styles.scss';
+@import '~ngx-tethys/avatar/styles/avatar.scss';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: $gray-80;
+}
+
+.single-wrap {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .single-header {
+        text-align: center;
+        // margin-top: 80px;
+        display: block;
+
+        .logo-from {
+          margin-right: 20px;
+        }
+
+        .logo-to {
+          margin-left: 20px;
+        }
+    }
+
+    .single-body {
+        display: block;
+        margin-top: 40px;
+    }
+}
+
+.single-card {
+  position: relative;
+  background-color: $white;
+  border-radius: 3px;
+  max-width: 520px;
+  min-height: 400px;
+  margin: 0 auto 20px;
+  padding: 17px 40px 40px 40px;
+  background: $white;
+  border: 1px $gray-200 solid;
+  border-radius: 8px;
+
+  &--selected-team {
+      width: 520px;
+      border: 0;
+      margin-bottom: 0;
+  }
+
+  .single-card-title {
+      display: block;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+      padding-bottom: 13px;
+      word-break: break-all;
+      border-bottom: 1px solid $gray-200;
+      margin-bottom: 25px;
+  }
+
+  .single-card-subtitle {
+      display: block;
+      font-size: 14px;
+      padding: 0 0 15px 0;
+      color: $gray-500;
+  }
+
+
+  .single-card-actions {
+      margin-top: 25px;
+  }
+
+  .single-form-footer-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      color: $gray-500;
+  }
+  .single-card-actions-desc {
+      margin-top: 10px;
+      color: $gray-500;
+  }
+
+}
