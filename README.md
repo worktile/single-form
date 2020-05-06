@@ -1,4 +1,4 @@
-## single-form style for worktile's marketplace apps
+## single-form style for worktile marketplace's apps
 
 ### Usage
 
@@ -8,4 +8,11 @@
 
 ### Online Demo
 
-https://worktile.github.io/single-form/index.html
+[Click it see live demo](https://worktile.github.io/single-form/index.html)
+
+### Development
+
+```
+npm run build:watch  // watch src scss
+npm run build        // build css to docs folder
+```
