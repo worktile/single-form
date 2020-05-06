@@ -4,6 +4,10 @@ $danger: #ff7575;
 $warning: #ffcd5d;
 $info: #5dcfff;
 
+$input-font-size-lg: 14px;
+$input-padding-x-lg: .625rem;
+$input-padding-y-lg: .657rem;
+
 @import '~ngx-tethys/styles/basic.scss';
 @import '~ngx-tethys/styles/modules/index.scss';
 @import '~bootstrap/scss/root';
