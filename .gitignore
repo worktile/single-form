@@ -59,7 +59,6 @@ jspm_packages/
 built
 .DS_Store
 .tmp
-dist
 reference
 .history
 .idea
