@@ -3,6 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: './src/index.scss',
     mode: 'development',
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/docs',
+    },
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
