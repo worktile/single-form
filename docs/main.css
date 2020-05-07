@@ -5729,10 +5729,9 @@ body {
   .single-wrap .single-header {
     text-align: center;
     display: block; }
-    .single-wrap .single-header .logo-from {
-      margin-right: 20px; }
-    .single-wrap .single-header .logo-to {
-      margin-left: 20px; }
+    .single-wrap .single-header .single-header-logo {
+      width: 288px;
+      height: 106px; }
   .single-wrap .single-body {
     display: block;
     margin-top: 40px; }

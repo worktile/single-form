@@ -5,8 +5,8 @@ $warning: #ffcd5d;
 $info: #5dcfff;
 
 $input-font-size-lg: 14px;
-$input-padding-x-lg: .625rem;
-$input-padding-y-lg: .657rem;
+$input-padding-x-lg: 0.625rem;
+$input-padding-y-lg: 0.657rem;
 
 @import '~ngx-tethys/styles/basic.scss';
 @import '~ngx-tethys/styles/modules/index.scss';
@@ -41,12 +41,9 @@ body {
         // margin-top: 80px;
         display: block;
 
-        .logo-from {
-          margin-right: 20px;
-        }
-
-        .logo-to {
-          margin-left: 20px;
+        .single-header-logo {
+            width: 288px;
+            height: 106px;
         }
     }
 
@@ -57,55 +54,53 @@ body {
 }
 
 .single-card {
-  position: relative;
-  background-color: $white;
-  border-radius: 3px;
-  max-width: 520px;
-  min-height: 400px;
-  margin: 0 auto 20px;
-  padding: 17px 40px 40px 40px;
-  background: $white;
-  border: 1px $gray-200 solid;
-  border-radius: 8px;
+    position: relative;
+    background-color: $white;
+    border-radius: 3px;
+    max-width: 520px;
+    min-height: 400px;
+    margin: 0 auto 20px;
+    padding: 17px 40px 40px 40px;
+    background: $white;
+    border: 1px $gray-200 solid;
+    border-radius: 8px;
 
-  &--selected-team {
-      width: 520px;
-      border: 0;
-      margin-bottom: 0;
-  }
+    &--selected-team {
+        width: 520px;
+        border: 0;
+        margin-bottom: 0;
+    }
 
-  .single-card-title {
-      display: block;
-      font-size: 20px;
-      font-weight: 400;
-      text-align: center;
-      padding-bottom: 13px;
-      word-break: break-all;
-      border-bottom: 1px solid $gray-200;
-      margin-bottom: 25px;
-  }
+    .single-card-title {
+        display: block;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 13px;
+        word-break: break-all;
+        border-bottom: 1px solid $gray-200;
+        margin-bottom: 25px;
+    }
 
-  .single-card-subtitle {
-      display: block;
-      padding: 0 0 15px 0;
-      color: $gray-500;
-  }
+    .single-card-subtitle {
+        display: block;
+        padding: 0 0 15px 0;
+        color: $gray-500;
+    }
 
+    .single-card-actions {
+        margin-top: 25px;
+    }
 
-  .single-card-actions {
-      margin-top: 25px;
-  }
+    .single-form-footer-actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        color: $gray-500;
+    }
 
-  .single-form-footer-actions {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      color: $gray-500;
-  }
-
-  .single-card-actions-desc {
-      margin-top: 10px;
-      color: $gray-500;
-  }
-
+    .single-card-actions-desc {
+        margin-top: 10px;
+        color: $gray-500;
+    }
 }
