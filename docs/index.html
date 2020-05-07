@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="utf-8" />
+  <title>GitHub App 授权配置</title>
   <link href="./main.css" rel="stylesheet" />
 </head>
 <body>
   <div class="single-wrap">
     <div class="single-header">
-      <svg class="single-header-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 288.48 106.56">
+      <svg
+        class="single-header-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 288.48 106.56"
+      >
         <defs>
           <style>
             .cls-1 {
@@ -149,13 +156,6 @@
           </g>
         </g>
       </svg>
-      <!-- <div class="thy-avatar thy-avatar-68 logo-from">
-        <img class="avatar-avatar" src="./square.png">
-      </div>
-      ->
-      <div class="thy-avatar thy-avatar-68 logo-to">
-        <img class="avatar-avatar" src="./square.png">
-      </div> -->
     </div>
     <div class="single-body">
       <div class="single-card">
@@ -165,17 +165,27 @@
         <div class="single-card-subtitle">
           在 Worktile 中创建自定义应用，并拷贝 ClientID 和 Secret
         </div>
-        <div class="thy-form thy-form-vertical">
+        <form
+          name="appSettingsForm"
+          class="thy-form thy-form-vertical"
+          action=""
+          novalidate
+          method="post"
+          onsubmit="return onSubmit();"
+        >
+          <input hidden name="transationId" value="<%=transationId%>" />
           <div class="form-group">
             <label class="form-label">Client ID</label>
-            <input class="form-control form-control-lg" placeholder="输入 ClientID" />
+            <input required type="text" name="clientId" class="form-control form-control-lg" placeholder="输入 ClientID" />
           </div>
           <div class="form-group">
             <label class="form-label">Secret</label>
             <div class="position-relative">
               <thy-input maxlength="50" name="password" class="thy-input form-control">
                 <input
+                  name="secret"
                   class="form-control form-control-lg"
+                  required
                   autocomplete="off"
                   type="password"
                   placeholder="输入 Secret"
@@ -202,15 +212,91 @@
               </thy-input>
             </div>
           </div>
+          <div class="form-group thy-alert thy-alert-danger">
+            <span class="thy-alert-content">
+              <thy-icon class="thy-alert-icon thy-icon-close-circle-fill thy-icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fit=""
+                  height="1em"
+                  width="1em"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                >
+                  <path
+                    d="M0 8c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8zm9.005.021l1.777-1.793-.994-.986-1.769 1.784L6.28 5.27l-.995.985 1.75 1.767-1.766 1.782.995.985 1.756-1.772 1.702 1.718.995-.985L9.005 8.02z"
+                  ></path>
+                </svg>
+              </thy-icon>
+              这里填写服务端返回的错误提示，如果有则展示，没有则不展示</span
+            >
+          </div>
           <thy-form-group-footer class="single-card-actions form-group">
             <div class="btn-pair">
-              <button class="btn btn-primary btn-square btn-block single-btn btn-lg">
+              <button type="submit" class="btn btn-primary btn-square btn-block single-btn btn-lg">
                 确认
               </button>
             </div>
           </thy-form-group-footer>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    function onSubmit() {
+      var clientIdElement = document.querySelector("input[name='clientId'");
+      var secretElement = document.querySelector("input[name='secret'");
+
+      var validatePassed = true;
+      if (!clientIdElement.value) {
+        validatePassed = false;
+        addErrorMessage(clientIdElement, 'ClientId 不能为空');
+        bindInputEventListener(clientIdElement);
+      }
+
+      if (!secretElement.value) {
+        validatePassed = false;
+        addErrorMessage(secretElement, 'Secret 不能为空');
+        bindInputEventListener(secretElement);
+      }
+      return validatePassed;
+    }
+
+    function bindInputEventListener(inputElement) {
+      var onInputEventListener = function () {
+        removeErrorMessage(inputElement);
+        inputElement.removeEventListener('input', onInputEventListener);
+      };
+
+      inputElement.addEventListener('input', onInputEventListener);
+    }
+
+    function addErrorMessage(inputElement, message) {
+      var inputContainer = getInputContainerElement(inputElement);
+      inputContainer.classList.add('is-invalid');
+      var invalidFeedback = inputContainer.parentElement.querySelector('.invalid-feedback');
+      if (!invalidFeedback) {
+        invalidFeedback = document.createElement('DIV');
+        invalidFeedback.classList.add('invalid-feedback');
+        inputContainer.parentElement.append(invalidFeedback);
+      }
+      invalidFeedback.innerText = message;
+    }
+
+    function removeErrorMessage(inputElement) {
+      var inputContainer = getInputContainerElement(inputElement);
+      inputContainer.classList.remove('is-invalid');
+      var invalidFeedback = inputContainer.parentElement.querySelector('.invalid-feedback');
+      invalidFeedback.remove();
+    }
+
+    function getInputContainerElement(element) {
+      if (element.parentElement.classList.contains('thy-input')) {
+        return element.parentElement;
+      } else {
+        return element;
+      }
+    }
+  </script>
 </body>
